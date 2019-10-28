@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-    <spin-something>
+    <spin-something myAttribute="sampleAttribute">
         <img src="isma2.jpg" />
     </spin-something>
     <script>
@@ -19,6 +19,7 @@
         constructor(){
           super();
           console.log('Greetings from my custom component');
+          console.log(this.getAttribute('myAttribute'));
           this.attachShadow({
             mode:"open"
           });
@@ -36,6 +37,10 @@
             easing: 'cubic-bezier(0, 0 , 0.3 ,1)',
             fill: 'forwards'
           });
+        }
+
+        disconnectedCallback() {
+          console.log('Element removed from the DOM');
         }
       }
       customElements.define('spin-something', SpinSomeThing);
