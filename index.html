@@ -12,7 +12,8 @@
     </my-logo>
     <script>
       const template = document.createElement('template');
-      template.innerHTML = '<slot />'
+      template.innerHTML = 
+        '<style>:host { display: inline-block }</style><slot />'
 
       class MyLogo extends HTMLElement {
         constructor(){
@@ -25,6 +26,16 @@
 
         connectedCallback() {
           this.shadowRoot.appendChild(template.content.cloneNode(true)); // clones the nodes recursively
+          this.animate([
+            {transform: 'scale(0) rotate(0deg)'},
+            {transform: 'scale(1) rotate(1080deg)'},
+            {transform: 'scale(0) rotate(2160deg)'}
+          ],
+          {
+            duration: 1000,
+            easing: 'cubic-bezier(0, 0 , 0.3 ,1)',
+            fill: 'forwards'
+          });
         }
       }
       customElements.define('my-logo', MyLogo);
