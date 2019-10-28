@@ -7,15 +7,15 @@
     <title>Document</title>
 </head>
 <body>
-    <my-logo>
+    <spin-something>
         <img src="isma2.jpg" />
-    </my-logo>
+    </spin-something>
     <script>
       const template = document.createElement('template');
       template.innerHTML = 
         '<style>:host { display: inline-block }</style><slot />'
 
-      class MyLogo extends HTMLElement {
+      class SpinSomeThing extends HTMLElement {
         constructor(){
           super();
           console.log('Greetings from my custom component');
@@ -38,7 +38,7 @@
           });
         }
       }
-      customElements.define('my-logo', MyLogo);
+      customElements.define('spin-something', SpinSomeThing);
     </script>
 </body>
 </html>
