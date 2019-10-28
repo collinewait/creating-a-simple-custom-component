@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-    <spin-something myAttribute="sampleAttribute">
+    <spin-something myattribute="sampleAttribute">
         <img src="isma2.jpg" />
     </spin-something>
     <script>
@@ -37,6 +37,14 @@
             easing: 'cubic-bezier(0, 0 , 0.3 ,1)',
             fill: 'forwards'
           });
+        }
+
+        static get observedAttributes() {
+          return ["myattribute"];
+        }
+
+        attributeChangedCallback(name, oldVal, newVal) {
+          console.table({ name, oldVal, newVal });
         }
 
         disconnectedCallback() {
