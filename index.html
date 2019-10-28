@@ -15,6 +15,9 @@
         constructor(){
           super();
           console.log('Greetings from my custom component');
+          this.attachShadow({
+            mode:"open"
+          });
         }
       }
       customElements.define('my-logo', MyLogo);
