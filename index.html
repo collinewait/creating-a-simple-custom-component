@@ -10,5 +10,14 @@
     <my-logo>
         <img src="isma2.jpg" />
     </my-logo>
+    <script>
+      class MyLogo extends HTMLElement {
+        constructor(){
+          super();
+          console.log('Greetings from my custom component');
+        }
+      }
+      customElements.define('my-logo', MyLogo);
+    </script>
 </body>
 </html>
